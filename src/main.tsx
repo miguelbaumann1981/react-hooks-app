@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 // import { HooksApp } from './HooksApp'
 // import { TrafficLight } from './01-useState/TrafficLight'
@@ -8,11 +8,15 @@ import { createRoot } from 'react-dom/client';
 // import { TasksApp } from './05-useReducer/TasksApp'
 // import { ScrambleWords } from './05-useReducer/ScrambleWords';
 // import { MemoHook } from './06-memos/MemoHook';
-import { MemoCounter } from './06-memos/MemoCounter';
+// import { MemoCounter } from './06-memos/MemoCounter';
+import { Toaster } from 'sonner';
+import { getUserAction } from './08-use-suspense/api/get-user.action';
+import { ClientInformation } from './08-use-suspense/ClientInformation';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <Toaster />
     {/* <HooksApp /> */}
     {/* <TrafficLight /> */}
     {/* <TrafficLightWithEffect /> */}
@@ -22,6 +26,11 @@ createRoot(document.getElementById('root')!).render(
     {/* <TasksApp /> */}
     {/* <ScrambleWords /> */}
     {/* <MemoHook /> */}
-    <MemoCounter />
+    {/* <MemoCounter /> */}
+    {/* <InstagromApp /> */}
+
+    <Suspense fallback={<h1>Cargando...</h1>}>
+      <ClientInformation getUser={getUserAction(100)} />
+    </Suspense>
   </StrictMode>,
 );
