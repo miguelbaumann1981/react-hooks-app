@@ -1,41 +1,41 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Check, Plus, Trash2 } from 'lucide-react'
-import { useEffect, useReducer, useState } from 'react'
-import { getTasksInitialState, tasksReducer } from './reducer/tasksReducer'
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Check, Plus, Trash2 } from 'lucide-react';
+import { useEffect, useReducer, useState } from 'react';
+import { getTasksInitialState, tasksReducer } from './reducer/tasksReducer';
 
 export const TasksApp = () => {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState('');
   // const [todos, setTodos] = useState<Todo[]>([])
-  const [state, dispatch] = useReducer(tasksReducer, getTasksInitialState())
+  const [state, dispatch] = useReducer(tasksReducer, getTasksInitialState());
 
   useEffect(() => {
-    localStorage.setItem('tasks-state', JSON.stringify(state))
-  }, [state])
+    localStorage.setItem('tasks-state', JSON.stringify(state));
+  }, [state]);
 
   const addTodo = () => {
-    if (inputValue.length === 0) return
-    dispatch({ type: 'ADD_TODO', payload: inputValue })
-    setInputValue('')
-  }
+    if (inputValue.length === 0) return;
+    dispatch({ type: 'ADD_TODO', payload: inputValue });
+    setInputValue('');
+  };
 
   const toggleTodo = (id: number) => {
-    dispatch({ type: 'TOGGLE_TODO', payload: id })
-  }
+    dispatch({ type: 'TOGGLE_TODO', payload: id });
+  };
 
   const deleteTodo = (id: number) => {
-    dispatch({ type: 'DELETE_TODO', payload: id })
-  }
+    dispatch({ type: 'DELETE_TODO', payload: id });
+  };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      addTodo()
+      addTodo();
     }
-  }
+  };
 
-  const { todos, length: totalCount, completed: completedCount } = state
+  const { todos, length: totalCount, completed: completedCount } = state;
 
   // const completedCount = todos.filter((todo) => todo.completed).length
   // const totalCount = todos.length
@@ -139,5 +139,5 @@ export const TasksApp = () => {
         </Card>
       </div>
     </div>
-  )
-}
+  );
+};

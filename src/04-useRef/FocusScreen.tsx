@@ -1,10 +1,10 @@
-import { useRef } from 'react'
+import { useRef } from 'react';
 
 export const FocusScreen = () => {
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null);
   const handleClick = () => {
-    inputRef.current?.select()
-  }
+    inputRef.current?.select();
+  };
 
   return (
     <div className="bg-gradient flex flex-col gap-4">
@@ -24,5 +24,5 @@ export const FocusScreen = () => {
         Set focus
       </button>
     </div>
-  )
-}
+  );
+};

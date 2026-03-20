@@ -1,16 +1,16 @@
-import { useCounter } from '../hooks/useCounter'
-import { usePokemon } from '../hooks/usePokemon'
+import { useCounter } from '../hooks/useCounter';
+import { usePokemon } from '../hooks/usePokemon';
 
 export const PokemonPage = () => {
-  const { counter, increment, decrement } = useCounter()
-  const { pokemon, isLoading, formattedId } = usePokemon({ id: counter })
+  const { counter, increment, decrement } = useCounter();
+  const { pokemon, isLoading, formattedId } = usePokemon({ id: counter });
 
   if (isLoading) {
-    return <div>Cargando....</div>
+    return <div>Cargando....</div>;
   }
 
   if (!pokemon) {
-    return <div>Pokemon no encontrado!</div>
+    return <div>Pokemon no encontrado!</div>;
   }
 
   return (
@@ -37,5 +37,5 @@ export const PokemonPage = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,23 +1,23 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 const colors = {
   red: 'bg-red-500 animate-pulse',
   yellow: 'bg-yellow-500 animate-pulse',
   green: 'bg-green-500 animate-pulse',
-}
+};
 
 // type TrafficLightColor = 'red' | 'yellow' | 'green'
-type TrafficLightColor = keyof typeof colors
+type TrafficLightColor = keyof typeof colors;
 
 export const TrafficLight = () => {
-  const [light, setLight] = useState<TrafficLightColor>('red')
+  const [light, setLight] = useState<TrafficLightColor>('red');
 
   const handleColorChange = (color: TrafficLightColor) => {
     setLight((prev) => {
-      console.log({ prev })
-      return color
-    })
-  }
+      console.log({ prev });
+      return color;
+    });
+  };
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-800 flex items-center justify-center p-4">
@@ -56,5 +56,5 @@ export const TrafficLight = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

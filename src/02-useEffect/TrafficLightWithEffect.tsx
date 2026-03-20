@@ -1,52 +1,52 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 const colors = {
   red: 'bg-red-500 animate-pulse',
   yellow: 'bg-yellow-500 animate-pulse',
   green: 'bg-green-500 animate-pulse',
-}
+};
 
 // type TrafficLightColor = 'red' | 'yellow' | 'green'
-type TrafficLightColor = keyof typeof colors
+type TrafficLightColor = keyof typeof colors;
 
 export const TrafficLightWithEffect = () => {
-  const [light, setLight] = useState<TrafficLightColor>('red')
-  const [countdown, setCountdown] = useState(5)
+  const [light, setLight] = useState<TrafficLightColor>('red');
+  const [countdown, setCountdown] = useState(5);
 
   // Countdown Effect
   useEffect(() => {
     if (countdown === 0) {
-      return
+      return;
     }
 
     const intervalId = setInterval(() => {
-      setCountdown((prev) => prev - 1)
-    }, 1000)
+      setCountdown((prev) => prev - 1);
+    }, 1000);
 
     return () => {
-      clearInterval(intervalId)
-    }
-  }, [countdown])
+      clearInterval(intervalId);
+    };
+  }, [countdown]);
 
   // Change light color Effect
   useEffect(() => {
-    if (countdown > 0) return
+    if (countdown > 0) return;
 
-    setCountdown(5)
+    setCountdown(5);
     if (light === 'red') {
-      setLight('green')
-      return
+      setLight('green');
+      return;
     }
     if (light === 'yellow') {
-      setLight('red')
-      return
+      setLight('red');
+      return;
     }
     if (light === 'green') {
-      setLight('yellow')
-      return
+      setLight('yellow');
+      return;
     }
-    return
-  }, [countdown, light])
+    return;
+  }, [countdown, light]);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-800 flex items-center justify-center p-4">
@@ -75,5 +75,5 @@ export const TrafficLightWithEffect = () => {
         {/* Botón para cambiar el estado de la luz */}
       </div>
     </div>
-  )
-}
+  );
+};

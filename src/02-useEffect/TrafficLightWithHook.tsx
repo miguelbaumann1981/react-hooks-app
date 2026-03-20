@@ -1,7 +1,7 @@
-import { useTrafficLight } from '../hooks/useTrafficLight'
+import { useTrafficLight } from '../hooks/useTrafficLight';
 
 export const TrafficLightWithHook = () => {
-  const { countdown, percentage, greenLight, redLight, yellowLight } = useTrafficLight()
+  const { countdown, percentage, greenLight, redLight, yellowLight } = useTrafficLight();
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-800 flex items-center justify-center p-4">
@@ -22,5 +22,5 @@ export const TrafficLightWithHook = () => {
         <div className={`w-32 h-32 ${greenLight} rounded-full`}></div>
       </div>
     </div>
-  )
-}
+  );
+};
